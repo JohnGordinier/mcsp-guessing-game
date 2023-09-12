@@ -2,8 +2,8 @@ let playerHistory = {}; //Object to story player data
 let firstRound = true;
 
 function getName() {
-  let nameQuestion = prompt("What is your name?");
-  return String(nameQuestion);
+  let name = prompt("What is your name?");
+  return String(name);
 }
 
 function getGuess() {
@@ -17,13 +17,13 @@ function getGuess() {
   }
 }
 
-function playTheGame(name) {
+function playTheGame() {
+  let name = getName();
   let guessCount = 0;
   let guessesArray = []; //Array to store the guess numbers
   const SECRET_NUMBER = Math.round(Math.random() * 10 + 1); //This states that the random
-  console.log("Starting new game " + guessesArray);
 
-  while (true) {
+  while (number != SECRET_NUMBER) {
     const number = getGuess();
     if (Number.isNaN(number)) {
       continue;
@@ -81,7 +81,6 @@ function playTheGame(name) {
 
 let playAgain = true;
 while (playAgain) {
-  let name = getName();
   console.log("In play again loop");
   playTheGame(name);
   playAgain = confirm("Press OK to play again " + name + ".");
